@@ -1,178 +1,270 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matchmaking App</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f1f1f1;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+<html>
+    <head>
+        <title> PROGAMMER DASSA </title>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Bungee&family=Caprasimo&family=Honk:SHLN@97.9&family=Michroma&family=Orbitron&family=Rubik+Mono+One&family=Russo+One&family=Smooch+Sans:wght@100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
 
-        .container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            width: 350px;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Bungee&family=Caprasimo&family=Chango&family=Domine:wght@400..700&family=Electrolize&family=Honk:SHLN@97.9&family=Michroma&family=Orbitron&family=Rubik+Mono+One&family=Russo+One&family=Smooch+Sans:wght@100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+        
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Bungee&family=Caprasimo&family=Chango&family=Domine:wght@400..700&family=Honk:SHLN@97.9&family=Michroma&family=Orbitron&family=Rubik+Mono+One&family=Russo+One&family=Smooch+Sans:wght@100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
 
-        h2 {
-            text-align: center;
-        }
 
-        label {
-            display: block;
-            margin: 10px 0 5px;
-        }
+        <style>
+            body {
+                background-color: #290016;
+            }
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Bungee&family=Caprasimo&family=Chango&family=Domine:wght@400..700&family=Honk:SHLN@97.9&family=Michroma&family=Orbitron&family=Rubik+Mono+One&family=Russo+One&family=Smooch+Sans:wght@100..900&family=Unbounded:wght@200..900&display=swap');
+          
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Bungee&family=Caprasimo&family=Chango&family=Domine:wght@400..700&family=Honk:SHLN@97.9&family=Michroma&family=Orbitron&family=Rubik+Mono+One&family=Russo+One&family=Smooch+Sans:wght@100..900&family=Unbounded:wght@200..900&display=swap');
+      
+            .dv1 {
+                background-color: #f1f1f1;
+                padding : 5px 5px;
+                border-radius: 12px;
+                color : black;
+                width : 378px;
+                font-family: "Anton", sans-serif;
+                box-shadow: 0 0 20px #d9ff95, 0 0 40px #ffc72b;
+               animation: glow-border 1.5s infinite alternate;
+            }
+            h3 {
+                color : #42e9f5;
+                font-size : 27px;
+                font-family: "Chango", sans-serif;
+            }
+            .p1 {
+                color : #42e9f5;
+                font-weight: bold;
+                font-family: "Archivo Black", sans-serif;
+                font-weight: 400;
+            }
+            .popup {
+               background-color : #000000;
+               border-radius: 12px;
+               padding :12px;
+               box-shadow: 0 0 20px #42e9f5;
+               width : 70%;
+               text-align : center;
+               height : 550px;
+               margin : 70px 70px 60px 40px;
+               top: 7%;
+               position : fixed;
+            }
+            .popup button {
+               color : #000000;
+               font-weight: bold;
+               background-color: #42e9f5;
+               border-radius: 12px;
+               font-size : 18px;
+               padding: 10px 20px;
+            }
+            .button1 {
+               font-family: "Chango", sans-serif;
+            }
+            .profile-picture {
+               width: 250px;
+               height: 250px;
+               margin: 70px;
+               border-radius: 50%;
+               overflow: hidden;
+               box-shadow: 0 0 20px #4ECDCA, 0 0 40px #349090;
+               animation: glow-border 1.5s infinite alternate;
+            }
 
-        input[type="text"], input[type="number"], select {
-            width: 100%;
-            padding: 8px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+            .profile-picture img {
+               width: 100%;
+               height: 100%;
+               object-fit: cover;
+               border-radius: 50%;
+            }
+            @keyframes glow-border {
+      0% {
+             box-shadow: 0 0 10px #4ecdc4, 0 0 20px #349090;
+      }
 
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        #result {
-            margin-top: 15px;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        .section {
-            margin-bottom: 20px;
-        }
-
-        .partner-info {
-            margin-top: 20px;
-        }
-
-        .section label {
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <h2>Matchmaking App</h2>
-
-        <!-- Your Information -->
-        <div class="section">
-            <h3>Your Information</h3>
-            <label for="name1">Name:</label>
-            <input type="text" id="name1" placeholder="Enter your name">
-
-            <label for="age1">Age:</label>
-            <input type="number" id="age1" placeholder="Enter your age">
-
-            <label for="country1">Country:</label>
-            <select id="country1">
-                <option value="USA">USA</option>
-                <option value="UK">UK</option>
-                <option value="Canada">Canada</option>
-                <option value="India">India</option>
-                <option value="Australia">Australia</option>
-            </select>
+      100% {
+             box-shadow: 0 0 30px #A3E6DE, 0 0 60px #4ecdc4;
+               }
+           }
+           .img1 {
+               animation: glow-border 1.5s infinite alternate;
+               border-radius : 12px;
+           }
+           .div2 {
+               animation-name : dassaph;
+               animation: dassaph ease-in-out 5s infinite;
+               background-color: #f1f1f1;
+               padding : 15px;
+               margin : 35px;
+               border-radius : 12px;
+               }
+          @keyframes dassaph {
+            0%{
+                transform: translateY(0px);
+               }
+           50%{
+                transform: translateY(40px);
+               }
+               100%{
+                transform: translateY(0px);
+               }
+           }
+           .p2 {
+               text-align : center;
+               font-weight: 900;
+               color : #ff15bd;
+               font-family: "Chango", sans-serif;
+           }
+           .p3 {
+               clear : both;
+               font-family: "Chango", sans-serif;
+               font-weight: 700;
+           }
+           .a2 {
+               text-decoration : none;
+               background-color: #ff0034;
+               padding : 7px;
+               border-radius : 12px;
+               font-weight: 900;
+               margin : 70px;
+               animetion : 1s linear infinite;
+           }
+           .a2 : hover {
+               color : #91ff80;
+           }
+           ul {
+               font-weight: bold;
+               font-family: "Electrolize", sans-serif;
+               font-weight: 400;
+           }
+           ul:hover {
+               color : #3115ff;
+           }
+           .a3 {
+               text-decoration : none;
+               background-color: #40ff63;
+               padding : 7px;
+               border-radius : 12px;
+               font-weight: 900;
+               margin : 60px;
+           }
+           .div2:hover {
+               border: 5px solid #53BDA5;
+               border-radius : 12px;
+           }
+           .div5 {
+               margin : 35px;
+               background-color: #f1f1f1;
+               border-radius : 12px;
+               padding : 5px;
+               animation: dassaph ease-in-out 5s infinite;
+           }
+           h5 {
+               text-align : center;
+               font-weight: 900;
+               font-size : 35px;
+           }
+           .funt {
+               margin : 50px;
+               border-radius : 12px;
+               animation: glow-border 1.5s infinite alternate;
+           }
+           h5 {
+               color : #ff2b5f;
+               font-weight: 900;
+               animation: dassaph ease-in-out 5s infinite;
+           }
+           h5:hover {
+               color : red;
+           }
+           .div5:hover {
+               border-radius : 8px;
+               border: 7px solid #85ff40;
+           }
+           </style>
+         
+    </head>
+    <body>
+      
+        
+        
+        <div class="dv1">
+            <h1> Progammer Dassa Official Web Page </h1>
         </div>
+        
+        <div class="profile-picture">
+    <img src="https://files.catbox.moe/m6iyd3.jpg" width="300px"> </div>
+    
+           
+                    <br>
+                    
+   <div class="div2">
+       <p class="p2"> Description </p>
+       <p class="p3"> Hi, welcome to my personal website. Through me, you can boost all your social media platforms and also get your website developed.</p>
+   </div>
+   <div class="div2">
+       <p class="p2"> Business Description </p>
+       <p class="p3"> You can boost any of your social media platforms through me at the lowest price in Sri Lanka, reliably and with full trust. </p>
+   </div>
+   <div class="div2">
+       <p class="p2"> My Youtube Chanel Description </p>
+       <p class="p3"> You can now earn extra income and stay updated with new technology and the latest technical content through my YouTube channel 💫 </p><p class="p3">Click the YouTube button below to visit my channel.</p> <a class="a2" href="https://youtube.com/@dassatech17?si=LtNHbPoY4oMqLcXD" target="_blank">  My Youtube Chanel </a>
+   </div >
+   <div class="div2">
+       <p class="p2"> My Online Business Menu </p>
+       <ul>
+           <li> Tiktok Chanel Boost </li> <br>
+           <li> Youtube Chanel Boost </li> <br>
+           <li> Fackbook Chanel Boost </li> <br>
+           <li> Instagram Chanel Boost </li> <br>
+           <li> WebSite Developed </li> <br>
+           <li> Mobile App Developed </li> <br>
+           <li> Contact Up Site Sall </li> <br>
+       </ul>
+       <p class="p3"> You can get these services from me quickly and reliably. <br> <br>
 
-        <!-- Partner's Information -->
-        <div class="partner-info">
-            <h3>Partner's Information</h3>
-            <label for="name2">Name:</label>
-            <input type="text" id="name2" placeholder="Enter partner's name">
+By sending me a message on WhatsApp, you’ll be able to receive my service without any delay. <br> <br>
 
-            <label for="age2">Age:</label>
-            <input type="number" id="age2" placeholder="Enter partner's age">
+You can contact me by tapping the WhatsApp button below, which will take you directly to my WhatsApp inbox.</p>
+  <br>
+   <a class="a3" href="https://wa.me/94743277981" target="_blank"> Contact Us Me Whtsapp </a>
+   </div> <br>
 
-            <label for="country2">Country:</label>
-            <select id="country2">
-                <option value="USA">USA</option>
-                <option value="UK">UK</option>
-                <option value="Canada">Canada</option>
-                <option value="India">India</option>
-                <option value="Australia">Australia</option>
-            </select>
-        </div>
-
-        <!-- Match Button -->
-        <button onclick="generateMatch()">Generate Match</button>
-
-        <!-- Match Result -->
-        <div id="result"></div>
+<div class="div5"> 
+    <h5> My Skills </h5>
+    <img class="funt" src="https://files.catbox.moe/t81l0m.jpg" width="65%"> <br> <br>
+       <img class="funt" src="https://files.catbox.moe/pc39dw.jpg" width="65%"> <br> <br>
+          <img class="funt" src="https://files.catbox.moe/z1okmi.jpg" width="65%"> <br> <br>
+</div>
+        
+         <div class="overlay" id="overlay"></div>
+  <div class="popup" id="popup">
+    <h3> Progammer Dassa Official </h3>
+    <img class="img1" src="https://files.catbox.moe/gnflez.jpg" width="60%">
+    <p class="p1"><br> Hy Friends Welcome to My Website<br><br> Mu Name Is Progammer Dassa <br><br> I am a online business men <br><br> Hi, welcome to my personal website. Through me, you can boost all your social media platforms and also get your website developed.</p> <br> <br>
+    <button class="button1" onclick="closePopup()">Close</button> <br>
     </div>
 
-    <script>
-        function generateMatch() {
-    // Get the input values for user and partner
-    const name1 = document.getElementById("name1").value;
-    const age1 = parseInt(document.getElementById("age1").value);
-    const country1 = document.getElementById("country1").value;
+        <script>
+            window.onload = function () {
+      setTimeout(() => {
+        document.getElementById('popup').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+      }, 1000);
+    };
 
-    const name2 = document.getElementById("name2").value;
-    const age2 = parseInt(document.getElementById("age2").value);
-    const country2 = document.getElementById("country2").value;
-
-    // Validate inputs
-    if (!name1 || !name2 || isNaN(age1) || isNaN(age2)) {
-        document.getElementById("result").innerHTML = "Please fill out all fields.";
-        return;
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
     }
-
-    // Simple matching logic
-    let matchPercentage = 0;
-
-    // Match logic based on age difference
-    let ageDifference = Math.abs(age1 - age2);
-    if (ageDifference <= 5) {
-        matchPercentage += 30;
-    } else if (ageDifference <= 10) {
-        matchPercentage += 20;
-    } else {
-        matchPercentage += 10;
-    }
-
-    // Match logic based on country
-    if (country1 === country2) {
-        matchPercentage += 40;
-    } else {
-        matchPercentage += 20;
-    }
-
-    // Random factor for personality match
-    matchPercentage += Math.floor(Math.random() * 30) + 1;
-
-    // Ensure match percentage is between 0 and 100
-    if (matchPercentage > 100) matchPercentage = 100;
-
-    // Display the match percentage
-    document.getElementById("result").innerHTML = `${name1} and ${name2}, your match percentage is ${matchPercentage}%!`;
-
-    // Open the ad link in a new window
-    window.open('https://otieu.com/4/9613171', '_blank', 'width=400,height=300');
-}
-  </script>  
-</body>
+        </script>
+    </body>
 </html>
+
